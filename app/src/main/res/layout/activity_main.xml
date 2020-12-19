@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnSouth"
+        android:id="@+id/btnBlue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_style_blue"
@@ -32,7 +32,7 @@
         app:layout_constraintVertical_bias="0.9" />
 
     <Button
-        android:id="@+id/btnNorth"
+        android:id="@+id/btnRed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_style_red"
@@ -44,7 +44,7 @@
         app:layout_constraintVertical_bias="0.1" />
 
     <Button
-        android:id="@+id/btnWest"
+        android:id="@+id/btnGreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_style_green"
@@ -57,7 +57,7 @@
         app:layout_constraintVertical_bias="0.498" />
 
     <Button
-        android:id="@+id/btnEast"
+        android:id="@+id/btnGrey"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_style_white"
@@ -95,7 +95,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.167"
-        tools:text="0" />
+        tools:text="1" />
 
     <TextView
         android:id="@+id/tvTextScore"
