@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity
     int arrayIndex = 0;
 
     Boolean played = false;
+    View view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -47,6 +48,8 @@ public class MainActivity extends AppCompatActivity
 
         round.setText(String.valueOf(1));
         score.setText(String.valueOf(0));
+
+        view = new View(this);
     }
 
     public void doPlay(View view)
@@ -69,8 +72,8 @@ public class MainActivity extends AppCompatActivity
         score.setText(String.valueOf(0));
     }
 
-    CountDownTimer ct = new CountDownTimer(6000, 1500) {
-
+    CountDownTimer ct = new CountDownTimer(6000, 1500)
+    {
         public void onTick(long millisUntilFinished)
         {
             //mTextField.setText("seconds remaining: " + millisUntilFinished / 1500);
@@ -85,24 +88,25 @@ public class MainActivity extends AppCompatActivity
             // we now have the game sequence
 
             for (int i = 0; i< arrayIndex; i++)
+            {
                 Log.d("game sequence", String.valueOf(gameSequence[i]));
-            // start next activity
+            }
 
-            // put the sequence into the next activity
-            // stack overglow https://stackoverflow.com/questions/3848148/sending-arrays-with-intent-putextra
-            //Intent i = new Intent(A.this, B.class);
-            //i.putExtra("numbers", array);
-            //startActivity(i);
+            Intent playActivity = new Intent(view.getContext(), PlayScreen.class);
 
-            // start the next activity
-            // int[] arrayB = extras.getIntArray("numbers");
+            playActivity.putExtra("sequenceCount", sequenceCount);
+            playActivity.putExtra("sequenceArray", gameSequence);
+
+            playActivity.putExtra("score", Integer.valueOf(score.getText().toString()));
+            playActivity.putExtra("round", Integer.valueOf(round.getText().toString()));
+
+            startActivity(playActivity);
         }
     };
 
     private void getRandomButton()
     {
         n = getRandom(sequenceCount);
-        //Toast.makeText(this, "Number = " + n, Toast.LENGTH_SHORT).show();
 
         switch (n)
         {

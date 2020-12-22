@@ -8,7 +8,7 @@
     tools:context=".PlayScreen">
 
     <Button
-        android:id="@+id/btnBlue"
+        android:id="@+id/btnSouth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_style_blue"
@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.9" />
 
     <Button
-        android:id="@+id/btnRed"
+        android:id="@+id/btnNorth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_style_red"
@@ -34,7 +34,7 @@
         app:layout_constraintVertical_bias="0.1" />
 
     <Button
-        android:id="@+id/btnGreen"
+        android:id="@+id/btnWest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_style_green"
@@ -48,7 +48,7 @@
         app:layout_constraintVertical_bias="0.498" />
 
     <Button
-        android:id="@+id/btnGrey"
+        android:id="@+id/btnEast"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_style_white"
