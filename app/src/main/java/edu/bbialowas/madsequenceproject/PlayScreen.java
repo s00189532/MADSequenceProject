@@ -2,6 +2,7 @@ package edu.bbialowas.madsequenceproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -131,58 +132,6 @@ public class PlayScreen extends AppCompatActivity implements SensorEventListener
         {
             highLimit = false;
         }
-
-
-        // Can we get a north movement
-        // you need to do your own mag calculating
-        /*if ((x > DIRECTION_MOVE_BACKWARD) && (highLimit == false))
-        {
-            highLimit = true;
-            btnSouth.setPressed(true);
-        }
-        if ((x < DIRECTION_MOVE_FORWARD) && (highLimit == true))
-        {
-            // we have a tilt to the south
-            highLimit = false;
-            btnSouth.setPressed(false);
-        }
-
-        if ((y > DIRECTION_MOVE_FORWARD) && (highLimit == false))
-        {
-            highLimit = true;
-            btnEast.setPressed(true);
-        }
-        if ((y < DIRECTION_MOVE_BACKWARD) && (highLimit == true))
-        {
-            // we have a tilt to the east
-            highLimit = false;
-            btnEast.setPressed(false);
-        }
-
-        if ((y > DIRECTION_MOVE_BACKWARD) && (highLimit == false))
-        {
-            highLimit = true;
-            btnWest.setPressed(true);
-        }
-        if ((y < DIRECTION_MOVE_FORWARD) && (highLimit == true))
-        {
-            // we have a tilt to the west
-            highLimit = false;
-            btnWest.setPressed(false);
-        }
-
-        if ((x > DIRECTION_MOVE_FORWARD) && (highLimit == false))
-        {
-            highLimit = true;
-            btnNorth.setPressed(true);
-        }
-        if ((x < DIRECTION_MOVE_BACKWARD) && (highLimit == true))
-        {
-            // we have a tilt to the north
-            highLimit = false;
-            btnNorth.setPressed(false);
-        }*/
-
     }
 
     @Override
@@ -219,7 +168,7 @@ public class PlayScreen extends AppCompatActivity implements SensorEventListener
     {
         //test to see if correct value is outputted
 
-        if(n < sequenceCount)
+        if(n+1 < sequenceCount)
         {
             if(gameSequence[n] == value)
             {
@@ -232,7 +181,7 @@ public class PlayScreen extends AppCompatActivity implements SensorEventListener
                 //game over
             }
         }
-        else if(n == sequenceCount)
+        else if(n+1 >= sequenceCount)
         {
             if(gameSequence[n] == value)
             {
@@ -240,7 +189,14 @@ public class PlayScreen extends AppCompatActivity implements SensorEventListener
                 score.setText(String.valueOf(scoreValue));
                 roundValue++;
 
-                //go to main activity and increase values and sequence count
+                Intent mainActivity = new Intent(view.getContext(), MainActivity.class);
+
+                MainActivity.scoreValue = scoreValue;
+                MainActivity.roundValue = roundValue;
+                MainActivity.sequenceCount = sequenceCount + 2;
+
+                startActivity(mainActivity);
+                finish();
             }
             else
             {

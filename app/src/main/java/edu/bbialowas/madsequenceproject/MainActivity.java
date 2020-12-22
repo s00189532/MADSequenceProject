@@ -23,7 +23,8 @@ public class MainActivity extends AppCompatActivity
     TextView round, score;
     Button bRed, bBlue, bWhite, bGreen, fb;
 
-    int sequenceCount = 4, n = 0;
+    public static int sequenceCount = 4, scoreValue = 0, roundValue = 1;
+    int n = 0;
     private Object mutex = new Object();
 
     int[] gameSequence = new int[120];
@@ -46,8 +47,8 @@ public class MainActivity extends AppCompatActivity
         bWhite = findViewById(R.id.btnGrey);
         bGreen = findViewById(R.id.btnGreen);
 
-        round.setText(String.valueOf(1));
-        score.setText(String.valueOf(0));
+        round.setText(String.valueOf(roundValue));
+        score.setText(String.valueOf(scoreValue));
 
         view = new View(this);
     }
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity
         score.setText(String.valueOf(0));
     }
 
-    CountDownTimer ct = new CountDownTimer(6000, 1500)
+    CountDownTimer ct = new CountDownTimer((1000 * sequenceCount) + 2000, 1500)
     {
         public void onTick(long millisUntilFinished)
         {
@@ -101,12 +102,14 @@ public class MainActivity extends AppCompatActivity
             playActivity.putExtra("round", Integer.valueOf(round.getText().toString()));
 
             startActivity(playActivity);
+
+
         }
     };
 
     private void getRandomButton()
     {
-        n = getRandom(sequenceCount);
+        n = getRandom(4);
 
         switch (n)
         {
