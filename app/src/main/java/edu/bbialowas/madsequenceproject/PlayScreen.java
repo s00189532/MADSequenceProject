@@ -178,7 +178,12 @@ public class PlayScreen extends AppCompatActivity implements SensorEventListener
             }
             else
             {
-                //game over
+                Intent gameOverActivity = new Intent(view.getContext(), GameOverScreen.class);
+
+                gameOverActivity.putExtra("score", scoreValue);
+                gameOverActivity.putExtra("round", roundValue);
+
+                startActivity(gameOverActivity);
             }
         }
         else if(n+1 >= sequenceCount)
@@ -200,7 +205,12 @@ public class PlayScreen extends AppCompatActivity implements SensorEventListener
             }
             else
             {
-                //game over
+                Intent gameOverActivity = new Intent(view.getContext(), GameOverScreen.class);
+
+                gameOverActivity.putExtra("score", scoreValue);
+                gameOverActivity.putExtra("round", roundValue);
+
+                startActivity(gameOverActivity);
             }
         }
     }

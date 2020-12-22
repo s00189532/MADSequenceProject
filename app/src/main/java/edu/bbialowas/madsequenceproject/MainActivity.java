@@ -64,16 +64,25 @@ public class MainActivity extends AppCompatActivity
 
     public void doFinish(View view)
     {
+        Intent gameOverActivity = new Intent(view.getContext(), GameOverScreen.class);
 
+        gameOverActivity.putExtra("score", scoreValue);
+        gameOverActivity.putExtra("round", roundValue);
+
+        startActivity(gameOverActivity);
     }
 
     public void doReset(View view)
     {
-        round.setText(String.valueOf(1));
-        score.setText(String.valueOf(0));
+        scoreValue = 0;
+        roundValue = 1;
+        sequenceCount = 4;
+
+        round.setText(roundValue);
+        score.setText(scoreValue);
     }
 
-    CountDownTimer ct = new CountDownTimer((1000 * sequenceCount) + 2000, 1500)
+    CountDownTimer ct = new CountDownTimer((1000 * sequenceCount) + 2500, 1500)
     {
         public void onTick(long millisUntilFinished)
         {
@@ -102,8 +111,6 @@ public class MainActivity extends AppCompatActivity
             playActivity.putExtra("round", Integer.valueOf(round.getText().toString()));
 
             startActivity(playActivity);
-
-
         }
     };
 
