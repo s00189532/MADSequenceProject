@@ -24,8 +24,8 @@ public class GameOverScreen extends AppCompatActivity
         scoreValue = getIntent().getIntExtra("score", -1);
         roundValue = getIntent().getIntExtra("round", -1);
 
-        score.setText(scoreValue);
-        round.setText(roundValue);
+        score.setText(String.valueOf(scoreValue));
+        round.setText(String.valueOf(roundValue));
     }
 
     public void doHighScores(View view)
@@ -41,7 +41,7 @@ public class GameOverScreen extends AppCompatActivity
 
     public void doRestart(View view)
     {
-        Intent mainActivity = new Intent(view.getContext(), GameOverScreen.class);
+        Intent mainActivity = new Intent(view.getContext(), MainActivity.class);
 
         MainActivity.roundValue = 1;
         MainActivity.scoreValue = 0;
