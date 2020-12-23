@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity
     TextView round, score;
     Button bRed, bBlue, bWhite, bGreen, fb;
 
-    public static int sequenceCount = 4, scoreValue = 0, roundValue = 1;
+    public static int sequenceCount = 4, scoreValue =  0, roundValue = 1;
     int n = 0;
 
     int[] gameSequence = new int[120];

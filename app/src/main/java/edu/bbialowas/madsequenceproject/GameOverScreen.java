@@ -1,7 +1,6 @@
 package edu.bbialowas.madsequenceproject;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -41,11 +40,9 @@ public class GameOverScreen extends AppCompatActivity
     public void doRestart(View view)
     {
         Intent mainActivity = new Intent(view.getContext(), MainActivity.class);
-
         MainActivity.roundValue = 1;
         MainActivity.scoreValue = 0;
         MainActivity.sequenceCount = 4;
-
         startActivity(mainActivity);
         finish();
     }
