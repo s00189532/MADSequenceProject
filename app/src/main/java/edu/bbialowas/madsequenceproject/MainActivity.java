@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
-import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -25,7 +24,6 @@ public class MainActivity extends AppCompatActivity
 
     public static int sequenceCount = 4, scoreValue = 0, roundValue = 1;
     int n = 0;
-    private Object mutex = new Object();
 
     int[] gameSequence = new int[120];
     int arrayIndex = 0;
@@ -86,9 +84,7 @@ public class MainActivity extends AppCompatActivity
     {
         public void onTick(long millisUntilFinished)
         {
-            //mTextField.setText("seconds remaining: " + millisUntilFinished / 1500);
             getRandomButton();
-            //here you can have your logic to set text to edittext
         }
 
         public void onFinish()

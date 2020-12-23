@@ -117,7 +117,7 @@ public class PlayScreen extends AppCompatActivity implements SensorEventListener
             btnEast.setPressed(false);
         }
 
-        if(y <= -5 && !highLimit)
+        if(y <= NValue && !highLimit)
         {
             highLimit = true;
             btnWest.setPressed(true);
@@ -135,10 +135,7 @@ public class PlayScreen extends AppCompatActivity implements SensorEventListener
     }
 
     @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy)
-    {
-        // not used
-    }
+    public void onAccuracyChanged(Sensor sensor, int accuracy) { }
 
     public void doSouth(View view)
     {
