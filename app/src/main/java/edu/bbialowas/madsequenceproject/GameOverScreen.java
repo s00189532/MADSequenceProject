@@ -33,7 +33,6 @@ public class GameOverScreen extends AppCompatActivity
         Intent highScoreActivity = new Intent(view.getContext(), HighScoresScreen.class);
 
         highScoreActivity.putExtra("score", scoreValue);
-        highScoreActivity.putExtra("round", roundValue);
 
         startActivity(highScoreActivity);
         finish();
